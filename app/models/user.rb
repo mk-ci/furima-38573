@@ -4,15 +4,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :first_kana, presence: true
-  validates :last_kana, presence: true
-  validates :birthday, presence: true
+  with_options presence: true do
+    validates :nickname, :birthday
+    validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze, message: "は半角英数で入力して下さい" }
+    validates :first_name, :last_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: "は全角ひらがな、全角カタカナ、漢字で入力して下さい" }
+    validates :first_kana, :last_kana, format: { with: /\A[\p{katakana}\u{30fc}]+\z/ }
+  end
 
   has_many :items
   # has_many :orders
   # has_many :comments
+
+
 
 end
