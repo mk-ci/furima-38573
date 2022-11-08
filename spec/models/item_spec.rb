@@ -9,18 +9,6 @@ RSpec.describe Item, type: :model do
       it 'すべての項目が入力されている' do
         expect(@item).to be_valid
       end
-      it '金額が半角数字で入力されている' do
-        @item.price = '100000'
-        expect(@item).to be_valid
-      end
-      it '金額が200〜9999999円の範囲で入力されている' do
-        @item.price = '5000000'
-        expect(@item).to be_valid
-      end
-      it 'ユーザーがログインしている' do
-        @item.user_id = '10'
-        expect(@item).to be_valid
-      end
     end
     context '商品が出品できない場合' do
       it '画像が空では出品できない' do
@@ -94,9 +82,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
       it 'ユーザーが紐付いていなければ投稿できない' do
-        @item.user_id = ''
+        @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("User can't be blank")
+        expect(@item.errors.full_messages).to include("User must exist")
       end
     end
   end
