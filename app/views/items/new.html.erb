@@ -56,8 +56,7 @@
             <span class="indispensable">必須</span>
           </div>
         <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
-
-      </div>
+        </div>
     </div>
     <%# /商品の詳細 %>
 
@@ -100,7 +99,7 @@
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field  class:"price-input", id:"item-price", placeholder:"例）300" %>
+          <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
@@ -143,9 +142,8 @@
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
-      </div> 
     <% end %>
-
+  </div> 
 
   <footer class="items-sell-footer">
     <ul class="menu">
