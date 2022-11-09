@@ -15,7 +15,8 @@ class Item < ApplicationRecord
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :Shippingcharge
-  delegate :name, to: :shipping_charge
+  belongs_to :shipping_charge
+  belongs_to :prefecture
+  belongs_to :days_to_ship
+  belongs_to :condition
 end
