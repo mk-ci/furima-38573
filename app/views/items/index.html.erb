@@ -135,11 +135,13 @@
           <%= link_to item_path(item) do %>
           <%= image_tag(item.image, class: "item-img") if item.image.attached? %>
 
+          <%# **商品購入機能実装時にコメントアウト削除予定です** %>
           <%# if item.order %>
           <%# <div class='sold-out'>
             <span>Sold Out!!</span>
           </div>  %>
           <%# end %>
+          <%# //**商品購入機能実装時にコメントアウト削除予定です** %>
 
         </div>
         <div class='item-info'>
