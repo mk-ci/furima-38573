@@ -132,7 +132,7 @@
       <li class='list'>
 
         <div class='item-img-content' >
-                <%= link_to item_path(item) do %>
+          <%= link_to item_path(item) do %>
           <%= image_tag(item.image, class: "item-img") if item.image.attached? %>
 
           <%# if item.order %>
