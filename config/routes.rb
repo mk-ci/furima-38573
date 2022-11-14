@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :items do
-    resources :orders, only: [:index, :new, :create]
+    resources :orders, only: [:index, :create]
   end
   resources :addresses
 end
