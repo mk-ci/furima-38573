@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :token, :post_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :order_id
+  attr_accessor :token, :post_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :order_id, :user_id, :item_id
   with_options presence: true do
     validates :token, :municipality, :address
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
