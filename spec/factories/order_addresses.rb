@@ -7,7 +7,5 @@ FactoryBot.define do
     address { "大通西10-4-124" }
     building_name { "ライオンズマンション第５大通７０２号室" }
     phone_number {"08012341234"}
-    # association :user, factory: :user
-    # association :item, factory: :item
   end
 end
