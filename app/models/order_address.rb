@@ -5,9 +5,9 @@ class OrderAddress
 
   with_options presence: true do
     validates :token, :municipality, :address, :user_id, :item_id
-    validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :phone_number, format: { with: /\A\d{10,11}\z/ }
-    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :post_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "は-（ハイフン）を入れて入力してください" }
+    validates :phone_number, format: { with: /\A\d{10,11}\z/, message: "は-（ハイフン）を除いて半角で入力してください" }
+    validates :prefecture_id, numericality: { other_than: 1, message: "を入力してください"}
   end
 
   def save

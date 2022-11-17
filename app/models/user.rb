@@ -7,8 +7,8 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname, :birthday
     validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze }
-    validates :first_name, :last_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/ }
-    validates :first_kana, :last_kana, format: { with: /\A[\p{katakana}\u{30fc}]+\z/ }
+    validates :first_name, :last_name, format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: "名前は全角（漢字・ひらがな・カタカナ）で入力してください" }
+    validates :first_kana, :last_kana, format: { with: /\A[\p{katakana}\u{30fc}]+\z/, message: "名前は全角カタカナで入力してください" }
   end
 
   has_many :items
